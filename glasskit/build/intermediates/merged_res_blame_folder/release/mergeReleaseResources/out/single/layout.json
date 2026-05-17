@@ -1,0 +1,22 @@
+[
+    {
+        "merged": "io.github.saadkhalidkhan.composeglasskit-release-39:/layout/notification_template_part_chronometer.xml",
+        "source": "io.github.saadkhalidkhan.composeglasskit-core-1.13.1-35:/layout/notification_template_part_chronometer.xml"
+    },
+    {
+        "merged": "io.github.saadkhalidkhan.composeglasskit-release-39:/layout/ime_secondary_split_test_activity.xml",
+        "source": "io.github.saadkhalidkhan.composeglasskit-core-1.13.1-35:/layout/ime_secondary_split_test_activity.xml"
+    },
+    {
+        "merged": "io.github.saadkhalidkhan.composeglasskit-release-39:/layout/ime_base_split_test_activity.xml",
+        "source": "io.github.saadkhalidkhan.composeglasskit-core-1.13.1-35:/layout/ime_base_split_test_activity.xml"
+    },
+    {
+        "merged": "io.github.saadkhalidkhan.composeglasskit-release-39:/layout/notification_template_part_time.xml",
+        "source": "io.github.saadkhalidkhan.composeglasskit-core-1.13.1-35:/layout/notification_template_part_time.xml"
+    },
+    {
+        "merged": "io.github.saadkhalidkhan.composeglasskit-release-39:/layout/custom_dialog.xml",
+        "source": "io.github.saadkhalidkhan.composeglasskit-core-1.13.1-35:/layout/custom_dialog.xml"
+    }
+]

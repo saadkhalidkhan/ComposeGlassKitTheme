@@ -1,0 +1,8 @@
+io.github.saadkhalidkhan.composeglasskit-pngs-0 C:\Users\Saad\Documents\Projects\Libraries\ComposeGlassKit\glasskit\build\generated\res\pngs\debug
+io.github.saadkhalidkhan.composeglasskit-updated_navigation_xml-1 C:\Users\Saad\Documents\Projects\Libraries\ComposeGlassKit\glasskit\build\generated\updated_navigation_xml\debug
+io.github.saadkhalidkhan.composeglasskit-mergeDebugResources-2 C:\Users\Saad\Documents\Projects\Libraries\ComposeGlassKit\glasskit\build\intermediates\incremental\debug\mergeDebugResources\merged.dir
+io.github.saadkhalidkhan.composeglasskit-mergeDebugResources-3 C:\Users\Saad\Documents\Projects\Libraries\ComposeGlassKit\glasskit\build\intermediates\incremental\debug\mergeDebugResources\stripped.dir
+io.github.saadkhalidkhan.composeglasskit-debug-4 C:\Users\Saad\Documents\Projects\Libraries\ComposeGlassKit\glasskit\build\intermediates\merged_res\debug\mergeDebugResources
+io.github.saadkhalidkhan.composeglasskit-debug-5 C:\Users\Saad\Documents\Projects\Libraries\ComposeGlassKit\glasskit\build\intermediates\packaged_res\debug\packageDebugResources
+io.github.saadkhalidkhan.composeglasskit-debug-6 C:\Users\Saad\Documents\Projects\Libraries\ComposeGlassKit\glasskit\src\debug\res
+io.github.saadkhalidkhan.composeglasskit-main-7 C:\Users\Saad\Documents\Projects\Libraries\ComposeGlassKit\glasskit\src\main\res

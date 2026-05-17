@@ -1,0 +1,8 @@
+io.github.saadkhalidkhan.composeglasskit-pngs-0 C:\Users\Saad\Documents\Projects\Libraries\ComposeGlassKit\glasskit\build\generated\res\pngs\release
+io.github.saadkhalidkhan.composeglasskit-updated_navigation_xml-1 C:\Users\Saad\Documents\Projects\Libraries\ComposeGlassKit\glasskit\build\generated\updated_navigation_xml\release
+io.github.saadkhalidkhan.composeglasskit-mergeReleaseResources-2 C:\Users\Saad\Documents\Projects\Libraries\ComposeGlassKit\glasskit\build\intermediates\incremental\release\mergeReleaseResources\merged.dir
+io.github.saadkhalidkhan.composeglasskit-mergeReleaseResources-3 C:\Users\Saad\Documents\Projects\Libraries\ComposeGlassKit\glasskit\build\intermediates\incremental\release\mergeReleaseResources\stripped.dir
+io.github.saadkhalidkhan.composeglasskit-release-4 C:\Users\Saad\Documents\Projects\Libraries\ComposeGlassKit\glasskit\build\intermediates\merged_res\release\mergeReleaseResources
+io.github.saadkhalidkhan.composeglasskit-release-5 C:\Users\Saad\Documents\Projects\Libraries\ComposeGlassKit\glasskit\build\intermediates\packaged_res\release\packageReleaseResources
+io.github.saadkhalidkhan.composeglasskit-main-6 C:\Users\Saad\Documents\Projects\Libraries\ComposeGlassKit\glasskit\src\main\res
+io.github.saadkhalidkhan.composeglasskit-release-7 C:\Users\Saad\Documents\Projects\Libraries\ComposeGlassKit\glasskit\src\release\res
