@@ -3,20 +3,10 @@
 Glassmorphism UI components for **Jetpack Compose** and **Material 3** — translucent surfaces, gradient borders, and configurable blur.
 
 <p align="center">
-  <a href="https://github.com/saadkhalidkhan/ComposeGlassKit/actions/workflows/ci.yml"><img src="https://img.shields.io/github/actions/workflow/status/saadkhalidkhan/ComposeGlassKit/ci.yml?branch=master&label=CI&logo=github" alt="CI status"/></a>
-  <a href="https://jitpack.io/#saadkhalidkhan/ComposeGlassKit"><img src="https://jitpack.io/v/saadkhalidkhan/ComposeGlassKit.svg" alt="JitPack"/></a>
-  <img src="https://img.shields.io/badge/version-1.0.0-blue" alt="Version"/>
+  <a href="https://github.com/saadkhalidkhan/ComposeGlassKit/actions/workflows/ci.yml"><img src="https://img.shields.io/github/actions/workflow/status/saadkhalidkhan/ComposeGlassKit/ci.yml?branch=master&label=CI&logo=github" alt="CI"/></a>
   <a href="LICENSE"><img src="https://img.shields.io/github/license/saadkhalidkhan/ComposeGlassKit" alt="License"/></a>
-  <a href="https://github.com/saadkhalidkhan/ComposeGlassKit/stargazers"><img src="https://img.shields.io/github/stars/saadkhalidkhan/ComposeGlassKit?style=social" alt="Stars"/></a>
-</p>
-
-<p align="center">
-  <img src="https://img.shields.io/github/forks/saadkhalidkhan/ComposeGlassKit" alt="Forks"/>
-  <img src="https://img.shields.io/github/issues/saadkhalidkhan/ComposeGlassKit" alt="Issues"/>
+  <a href="https://jitpack.io/#saadkhalidkhan/ComposeGlassKit"><img src="https://jitpack.io/v/saadkhalidkhan/ComposeGlassKit.svg" alt="JitPack"/></a>
   <img src="https://img.shields.io/badge/API-26%2B-brightgreen?logo=android" alt="API 26+"/>
-  <img src="https://img.shields.io/badge/Kotlin-2.2.10-7F52FF?logo=kotlin&logoColor=white" alt="Kotlin"/>
-  <img src="https://img.shields.io/badge/Jetpack%20Compose-BOM%202024.09-4285F4?logo=jetpackcompose&logoColor=white" alt="Compose"/>
-  <img src="https://img.shields.io/badge/group-io.github.saadkhalidkhan-blue" alt="Maven group"/>
 </p>
 
 <p align="center">
@@ -105,8 +95,6 @@ dependencies {
     implementation("com.github.saadkhalidkhan:ComposeGlassKit:1.0.0")
 }
 ```
-
-[![JitPack](https://img.shields.io/badge/JitPack-ComposeGlassKit-ff6b6b?logo=github)](https://jitpack.io/#saadkhalidkhan/ComposeGlassKit)
 
 ### 3. Maven coordinates
 
@@ -245,5 +233,3 @@ Licensed under the Apache License, Version 2.0
 ```
 
 See [LICENSE](LICENSE) for the full text.
-
-[![License](https://img.shields.io/github/license/saadkhalidkhan/ComposeGlassKit)](LICENSE)
