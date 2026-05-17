@@ -3,13 +3,6 @@
 Glassmorphism UI components for **Jetpack Compose** and **Material 3** — translucent surfaces, gradient borders, and configurable blur.
 
 <p align="center">
-  <a href="https://github.com/saadkhalidkhan/ComposeGlassKit/actions/workflows/ci.yml"><img src="https://img.shields.io/github/actions/workflow/status/saadkhalidkhan/ComposeGlassKit/ci.yml?branch=master&label=CI&logo=github" alt="CI"/></a>
-  <a href="LICENSE"><img src="https://img.shields.io/github/license/saadkhalidkhan/ComposeGlassKit" alt="License"/></a>
-  <a href="https://jitpack.io/#saadkhalidkhan/ComposeGlassKit"><img src="https://jitpack.io/v/saadkhalidkhan/ComposeGlassKit.svg" alt="JitPack"/></a>
-  <img src="https://img.shields.io/badge/API-26%2B-brightgreen?logo=android" alt="API 26+"/>
-</p>
-
-<p align="center">
   <video src="docs/media/glasskit.webm" width="720" autoplay loop muted playsinline>
     <a href="docs/media/glasskit.webm">Watch demo video</a>
   </video>
