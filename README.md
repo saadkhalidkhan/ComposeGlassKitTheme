@@ -1,6 +1,17 @@
 # ComposeGlassKit
 
-Glassmorphism UI components for **Jetpack Compose** and **Material 3** — translucent surfaces, gradient borders, and configurable blur.
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
+[![Kotlin](https://img.shields.io/badge/Kotlin-2.2.10-7F52FF?logo=kotlin&logoColor=white)](https://kotlinlang.org/)
+[![Android](https://img.shields.io/badge/Android-API%2026%2B-3DDC84?logo=android&logoColor=white)](https://developer.android.com/)
+[![Version](https://img.shields.io/badge/version-1.0.0-blue)](https://github.com/saadkhalidkhan/ComposeGlassKit/releases)
+[![minSdk](https://img.shields.io/badge/minSdk-26-lightgrey)](glasskit/build.gradle.kts)
+[![targetSdk](https://img.shields.io/badge/targetSdk-36-lightgrey)](sample/build.gradle.kts)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
+[![Android CI](https://github.com/saadkhalidkhan/ComposeGlassKit/actions/workflows/android-ci.yml/badge.svg)](https://github.com/saadkhalidkhan/ComposeGlassKit/actions/workflows/android-ci.yml)
+
+A **Jetpack Compose** library for **glassmorphism** UI — translucent surfaces, gradient borders, configurable blur, and ready-made components (`GlassCard`, `GlassButton`, `GlassNavBar`, `GlassDialog`) with **Material 3** support.
+
+[**Report a bug**](https://github.com/saadkhalidkhan/ComposeGlassKit/issues) · [**Contributing**](CONTRIBUTING.md) · [**Security**](SECURITY.md)
 
 <p align="center">
   <video src="docs/media/glasskit.webm" width="720" autoplay loop muted playsinline>
@@ -36,6 +47,7 @@ Maintained by **[Saad Khan](https://github.com/saadkhalidkhan)** · [Portfolio](
 - [Documentation](#documentation)
 - [Contributing](#contributing)
 - [License](#license)
+- [Author](#author)
 
 ## Preview
 
@@ -197,7 +209,7 @@ Local Maven:
 ./gradlew :glasskit:publishReleasePublicationToMavenLocal
 ```
 
-GitHub release (tags `v*` trigger [release workflow](.github/workflows/release.yml) and attach APK/AAR artifacts).
+GitHub release (tags `v*` trigger [release workflow](.github/workflows/release.yml) and attach APK/AAR artifacts). CI runs on every push via [Android CI](.github/workflows/android-ci.yml).
 
 ## Documentation
 
@@ -211,18 +223,23 @@ GitHub release (tags `v*` trigger [release workflow](.github/workflows/release.y
 
 ## Contributing
 
-1. Fork the repo and create a branch.
-2. Run `./gradlew :glasskit:test :sample:assembleDebug` before opening a PR.
-3. Follow existing Kotlin and Compose style.
+Contributions are welcome. Please read [CONTRIBUTING.md](CONTRIBUTING.md) and our [Code of Conduct](CODE_OF_CONDUCT.md) before opening an issue or pull request.
 
-Issues and PRs are welcome on [GitHub Issues](https://github.com/saadkhalidkhan/ComposeGlassKit/issues).
+1. Open an issue to discuss larger changes.
+2. Fork the repo and create a branch from `master`.
+3. Run `./gradlew :glasskit:test :glasskit:assembleRelease :sample:assembleDebug` before opening a PR.
+4. Open a pull request with a clear description and media for UI changes.
 
 ## License
 
+This project is licensed under the **Apache License 2.0** — see [LICENSE](LICENSE).
+
 ```
 Copyright 2026 Saad Khan
-
-Licensed under the Apache License, Version 2.0
 ```
 
-See [LICENSE](LICENSE) for the full text.
+## Author
+
+**Saad Khan** — [GitHub](https://github.com/saadkhalidkhan) · [Medium](https://medium.com/@saadkhan0799) · [ranasaad0799@gmail.com](mailto:ranasaad0799@gmail.com)
+
+If this library helps you, consider starring the repo.
