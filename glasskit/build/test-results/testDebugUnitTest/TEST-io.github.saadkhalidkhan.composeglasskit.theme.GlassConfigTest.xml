@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="io.github.saadkhalidkhan.composeglasskit.theme.GlassConfigTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2026-05-17T08:26:43.237Z" hostname="DESKTOP-SM4P355" time="0.099">
-  <properties/>
-  <testcase name="customConfig_overridesDefaults" classname="io.github.saadkhalidkhan.composeglasskit.theme.GlassConfigTest" time="0.081"/>
-  <testcase name="defaultConfig_usesDocumentedDefaults" classname="io.github.saadkhalidkhan.composeglasskit.theme.GlassConfigTest" time="0.001"/>
-  <testcase name="defaultConfig_copy_preservesValues" classname="io.github.saadkhalidkhan.composeglasskit.theme.GlassConfigTest" time="0.0"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>
