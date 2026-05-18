@@ -3,15 +3,15 @@
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
 [![Kotlin](https://img.shields.io/badge/Kotlin-2.2.10-7F52FF?logo=kotlin&logoColor=white)](https://kotlinlang.org/)
 [![Android](https://img.shields.io/badge/Android-API%2026%2B-3DDC84?logo=android&logoColor=white)](https://developer.android.com/)
-[![Version](https://img.shields.io/badge/version-1.0.0-blue)](https://github.com/saadkhalidkhan/ComposeGlassKit/releases)
+[![Version](https://img.shields.io/badge/version-1.0.0-blue)](https://github.com/saadkhalidkhan/ComposeGlassKitTheme/releases)
 [![minSdk](https://img.shields.io/badge/minSdk-26-lightgrey)](glasskit/build.gradle.kts)
 [![targetSdk](https://img.shields.io/badge/targetSdk-36-lightgrey)](sample/build.gradle.kts)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
-[![Android CI](https://github.com/saadkhalidkhan/ComposeGlassKit/actions/workflows/android-ci.yml/badge.svg)](https://github.com/saadkhalidkhan/ComposeGlassKit/actions/workflows/android-ci.yml)
+[![Android CI](https://github.com/saadkhalidkhan/ComposeGlassKitTheme/actions/workflows/android-ci.yml/badge.svg)](https://github.com/saadkhalidkhan/ComposeGlassKitTheme/actions/workflows/android-ci.yml)
 
 A **Jetpack Compose** library for **glassmorphism** UI — translucent surfaces, gradient borders, configurable blur, and ready-made components (`GlassCard`, `GlassButton`, `GlassNavBar`, `GlassDialog`) with **Material 3** support.
 
-[**Report a bug**](https://github.com/saadkhalidkhan/ComposeGlassKit/issues) · [**Contributing**](CONTRIBUTING.md) · [**Security**](SECURITY.md)
+[**Report a bug**](https://github.com/saadkhalidkhan/ComposeGlassKitTheme/issues) · [**Contributing**](CONTRIBUTING.md) · [**Security**](SECURITY.md)
 
 <p align="center">
   <video src="docs/media/glasskit.webm" width="720" autoplay loop muted playsinline>
@@ -85,7 +85,7 @@ dependencies {
 JitPack uses your **GitHub repo** for coordinates (`com.github.saadkhalidkhan`), not the library Maven group (`com.saadkhan`). That is expected.
 
 1. Tag a release on GitHub (e.g. `v1.0.0`).
-2. Build it on [JitPack](https://jitpack.io/#saadkhalidkhan/ComposeGlassKit).
+2. Build it on [JitPack](https://jitpack.io/#saadkhalidkhan/ComposeGlassKitTheme).
 3. Add the repository and dependency:
 
 ```kotlin
@@ -103,7 +103,7 @@ dependencyResolutionManagement {
 // app/build.gradle.kts
 dependencies {
     // Multi-module: Repo : module : version
-    implementation("com.github.saadkhalidkhan:ComposeGlassKit:glasskit:1.0.0")
+    implementation("com.github.saadkhalidkhan:ComposeGlassKitTheme:glasskit:1.0.0")
 }
 ```
 

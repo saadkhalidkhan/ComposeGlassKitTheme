@@ -27,4 +27,4 @@ Reports are appreciated for issues such as:
 - Hardcoded secrets or credentials committed to the repository
 - Sample app issues that could mislead integrators into insecure patterns
 
-General feature requests and non-security bugs should use [GitHub Issues](https://github.com/saadkhalidkhan/ComposeGlassKit/issues).
+General feature requests and non-security bugs should use [GitHub Issues](https://github.com/saadkhalidkhan/ComposeGlassKitTheme/issues).

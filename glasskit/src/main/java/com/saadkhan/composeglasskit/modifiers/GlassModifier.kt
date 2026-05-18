@@ -31,7 +31,7 @@ import com.saadkhan.composeglasskit.theme.GlassTheme
  * For **true backdrop blur** of the window behind a dialog, use [com.saadkhan.composeglasskit.components.GlassDialog]
  * on Android 12+ (API 31), which enables `FLAG_BLUR_BEHIND` on the dialog window.
  *
- * See [docs/BLUR.md](https://github.com/saadkhalidkhan/ComposeGlassKit/blob/main/docs/BLUR.md)
+ * See [docs/BLUR.md](https://github.com/saadkhalidkhan/ComposeGlassKitTheme/blob/main/docs/BLUR.md)
  * in the repository for limitations and recommended layouts.
  *
  * @param blurRadius Blur radius. `0.dp` disables blur. Unspecified uses [GlassTheme.config].

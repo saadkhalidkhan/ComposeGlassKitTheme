@@ -1,8 +1,8 @@
 blank_issues_enabled: false
 contact_links:
   - name: Security vulnerability
-    url: https://github.com/saadkhalidkhan/ComposeGlassKit/security/policy
+    url: https://github.com/saadkhalidkhan/ComposeGlassKitTheme/security/policy
     about: Report security issues privately (see SECURITY.md). Do not open a public issue with exploit details.
   - name: Question or discussion
-    url: https://github.com/saadkhalidkhan/ComposeGlassKit/issues/new/choose
+    url: https://github.com/saadkhalidkhan/ComposeGlassKitTheme/issues/new/choose
     about: Ask a question or suggest an improvement using our templates.

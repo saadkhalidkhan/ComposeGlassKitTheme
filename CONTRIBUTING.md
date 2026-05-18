@@ -48,4 +48,4 @@ This project follows the [Contributor Covenant](CODE_OF_CONDUCT.md). Be respectf
 
 ## Questions
 
-Open a [GitHub Issue](https://github.com/saadkhalidkhan/ComposeGlassKit/issues) and describe your question. For security concerns, see [SECURITY.md](SECURITY.md).
+Open a [GitHub Issue](https://github.com/saadkhalidkhan/ComposeGlassKitTheme/issues) and describe your question. For security concerns, see [SECURITY.md](SECURITY.md).

@@ -19,4 +19,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - GitHub Actions CI and release workflows
 - Apache 2.0 license
 
-[1.0.0]: https://github.com/saadkhalidkhan/ComposeGlassKit/releases/tag/v1.0.0
+[1.0.0]: https://github.com/saadkhalidkhan/ComposeGlassKitTheme/releases/tag/v1.0.0
