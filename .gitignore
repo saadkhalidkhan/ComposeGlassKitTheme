@@ -11,4 +11,5 @@ local.properties
 
 # Module build outputs
 **/build/
+.kotlin/
 .agent/

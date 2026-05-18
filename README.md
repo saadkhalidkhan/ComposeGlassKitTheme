@@ -3,7 +3,7 @@
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
 [![Kotlin](https://img.shields.io/badge/Kotlin-2.2.10-7F52FF?logo=kotlin&logoColor=white)](https://kotlinlang.org/)
 [![Android](https://img.shields.io/badge/Android-API%2026%2B-3DDC84?logo=android&logoColor=white)](https://developer.android.com/)
-[![Version](https://img.shields.io/badge/version-1.0.0-blue)](https://github.com/saadkhalidkhan/ComposeGlassKitTheme/releases)
+[![JitPack](https://jitpack.io/v/saadkhalidkhan/ComposeGlassKitTheme.svg)](https://jitpack.io/#saadkhalidkhan/ComposeGlassKitTheme)
 [![minSdk](https://img.shields.io/badge/minSdk-26-lightgrey)](glasskit/build.gradle.kts)
 [![targetSdk](https://img.shields.io/badge/targetSdk-36-lightgrey)](sample/build.gradle.kts)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
@@ -102,12 +102,11 @@ dependencyResolutionManagement {
 ```kotlin
 // app/build.gradle.kts
 dependencies {
-    // Multi-module: Repo : module : version
-    implementation("com.github.saadkhalidkhan:ComposeGlassKitTheme:glasskit:1.0.0")
+    implementation("com.github.saadkhalidkhan:ComposeGlassKitTheme:v1.0.0")
 }
 ```
 
-Use the exact artifact name shown on the JitPack page for your tag if it differs.
+If resolution fails, try `…:glasskit:v1.0.0` or copy the Gradle line from the [JitPack build page](https://jitpack.io/#saadkhalidkhan/ComposeGlassKitTheme) for your tag.
 
 ### 3. Maven coordinates (Maven Central / local)
 
