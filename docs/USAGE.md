@@ -1,6 +1,6 @@
 # Usage examples
 
-Package: `io.github.saadkhalidkhan.composeglasskit`
+Package: `com.saadkhan.composeglasskit`
 
 ## Setup
 
@@ -17,8 +17,8 @@ dependencies {
 Wrap content that uses glass components:
 
 ```kotlin
-import io.github.saadkhalidkhan.composeglasskit.theme.GlassConfig
-import io.github.saadkhalidkhan.composeglasskit.theme.GlassTheme
+import com.saadkhan.composeglasskit.theme.GlassConfig
+import com.saadkhan.composeglasskit.theme.GlassTheme
 
 GlassTheme(
     config = GlassConfig(
@@ -38,7 +38,7 @@ Place a **full-screen background** (image, gradient, or video) **behind** glass 
 ## GlassCard
 
 ```kotlin
-import io.github.saadkhalidkhan.composeglasskit.components.GlassCard
+import com.saadkhan.composeglasskit.components.GlassCard
 
 GlassCard(
     modifier = Modifier
@@ -60,7 +60,7 @@ GlassCard(
 ## GlassButton
 
 ```kotlin
-import io.github.saadkhalidkhan.composeglasskit.components.GlassButton
+import com.saadkhan.composeglasskit.components.GlassButton
 
 GlassButton(
     onClick = { /* action */ },
@@ -80,7 +80,7 @@ GlassButton(
 ## GlassNavBar
 
 ```kotlin
-import io.github.saadkhalidkhan.composeglasskit.components.GlassNavBar
+import com.saadkhan.composeglasskit.components.GlassNavBar
 
 Scaffold(
     containerColor = Color.Transparent,
@@ -108,7 +108,7 @@ Scaffold(
 ## GlassDialog
 
 ```kotlin
-import io.github.saadkhalidkhan.composeglasskit.components.GlassDialog
+import com.saadkhan.composeglasskit.components.GlassDialog
 
 var showDialog by remember { mutableStateOf(false) }
 
@@ -139,7 +139,7 @@ On **API 31+**, the system blurs the activity behind the dialog. On older device
 ## Custom modifier only
 
 ```kotlin
-import io.github.saadkhalidkhan.composeglasskit.modifiers.glassEffect
+import com.saadkhan.composeglasskit.modifiers.glassEffect
 
 Box(
     modifier = Modifier

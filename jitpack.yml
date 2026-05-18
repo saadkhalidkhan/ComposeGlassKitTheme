@@ -1,0 +1,4 @@
+jdk:
+  - openjdk17
+install:
+  - ./gradlew :glasskit:publishToMavenLocal -x test --stacktrace

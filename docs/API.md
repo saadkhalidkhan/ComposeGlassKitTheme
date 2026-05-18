@@ -1,6 +1,6 @@
 # ComposeGlassKit API
 
-Package: `io.github.saadkhalidkhan.composeglasskit`
+Package: `com.saadkhan.composeglasskit`
 
 ## Theme
 

@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace = "io.github.saadkhalidkhan.composeglasskit.sample"
+    namespace = "com.saadkhan.composeglasskit.sample"
     compileSdk {
         version = release(36) {
             minorApiLevel = 1
@@ -12,7 +12,7 @@ android {
     }
 
     defaultConfig {
-        applicationId = "io.github.saadkhalidkhan.composeglasskit.sample"
+        applicationId = "com.saadkhan.composeglasskit.sample"
         minSdk = 26
         targetSdk = 36
         versionCode = 1

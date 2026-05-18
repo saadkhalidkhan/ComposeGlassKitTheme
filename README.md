@@ -82,9 +82,14 @@ dependencies {
 
 ### 2. JitPack (GitHub release)
 
-Add JitPack to your root `settings.gradle.kts`:
+JitPack uses your **GitHub repo** for coordinates (`com.github.saadkhalidkhan`), not the library Maven group (`com.saadkhan`). That is expected.
+
+1. Tag a release on GitHub (e.g. `v1.0.0`).
+2. Build it on [JitPack](https://jitpack.io/#saadkhalidkhan/ComposeGlassKit).
+3. Add the repository and dependency:
 
 ```kotlin
+// settings.gradle.kts
 dependencyResolutionManagement {
     repositories {
         google()
@@ -97,23 +102,26 @@ dependencyResolutionManagement {
 ```kotlin
 // app/build.gradle.kts
 dependencies {
-    implementation("com.github.saadkhalidkhan:ComposeGlassKit:1.0.0")
+    // Multi-module: Repo : module : version
+    implementation("com.github.saadkhalidkhan:ComposeGlassKit:glasskit:1.0.0")
 }
 ```
 
-### 3. Maven coordinates
+Use the exact artifact name shown on the JitPack page for your tag if it differs.
+
+### 3. Maven coordinates (Maven Central / local)
 
 | | |
 |---|---|
-| **Group** | `io.github.saadkhalidkhan` |
+| **Group** | `com.saadkhan` |
 | **Artifact** | `compose-glasskit` |
 | **Version** | `1.0.0` (`LIBRARY_VERSION` in `gradle.properties`) |
 
 ```kotlin
-implementation("io.github.saadkhalidkhan:compose-glasskit:1.0.0")
+implementation("com.saadkhan:compose-glasskit:1.0.0")
 ```
 
-*Available on Maven Central after you publish; use JitPack until then.*
+Use this form after publishing to Maven Central or `publishToMavenLocal`. For day-one distribution, JitPack (above) is usually enough.
 
 ## Quick start
 
@@ -123,9 +131,9 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Text
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import io.github.saadkhalidkhan.composeglasskit.components.GlassCard
-import io.github.saadkhalidkhan.composeglasskit.theme.GlassConfig
-import io.github.saadkhalidkhan.composeglasskit.theme.GlassTheme
+import com.saadkhan.composeglasskit.components.GlassCard
+import com.saadkhan.composeglasskit.theme.GlassConfig
+import com.saadkhan.composeglasskit.theme.GlassTheme
 
 @Composable
 fun GlassHelloScreen() {
@@ -169,13 +177,13 @@ GlassDialog(onDismissRequest = { showDialog = false }) {
 
 | Component | Description |
 |-----------|-------------|
-| [`GlassTheme`](glasskit/src/main/java/io/github/saadkhalidkhan/composeglasskit/theme/GlassTheme.kt) | Global `GlassConfig` provider |
-| [`GlassConfig`](glasskit/src/main/java/io/github/saadkhalidkhan/composeglasskit/theme/GlassTheme.kt) | Blur, alpha, border defaults |
-| [`Modifier.glassEffect()`](glasskit/src/main/java/io/github/saadkhalidkhan/composeglasskit/modifiers/GlassModifier.kt) | Core glass surface modifier |
-| [`GlassCard`](glasskit/src/main/java/io/github/saadkhalidkhan/composeglasskit/components/GlassCard.kt) | Card container |
-| [`GlassButton`](glasskit/src/main/java/io/github/saadkhalidkhan/composeglasskit/components/GlassButton.kt) | Clickable button |
-| [`GlassNavBar`](glasskit/src/main/java/io/github/saadkhalidkhan/composeglasskit/components/GlassNavBar.kt) | Glass `NavigationBar` |
-| [`GlassDialog`](glasskit/src/main/java/io/github/saadkhalidkhan/composeglasskit/components/GlassDialog.kt) | Modal with backdrop blur |
+| [`GlassTheme`](glasskit/src/main/java/com/saadkhan/composeglasskit/theme/GlassTheme.kt) | Global `GlassConfig` provider |
+| [`GlassConfig`](glasskit/src/main/java/com/saadkhan/composeglasskit/theme/GlassTheme.kt) | Blur, alpha, border defaults |
+| [`Modifier.glassEffect()`](glasskit/src/main/java/com/saadkhan/composeglasskit/modifiers/GlassModifier.kt) | Core glass surface modifier |
+| [`GlassCard`](glasskit/src/main/java/com/saadkhan/composeglasskit/components/GlassCard.kt) | Card container |
+| [`GlassButton`](glasskit/src/main/java/com/saadkhan/composeglasskit/components/GlassButton.kt) | Clickable button |
+| [`GlassNavBar`](glasskit/src/main/java/com/saadkhan/composeglasskit/components/GlassNavBar.kt) | Glass `NavigationBar` |
+| [`GlassDialog`](glasskit/src/main/java/com/saadkhan/composeglasskit/components/GlassDialog.kt) | Modal with backdrop blur |
 
 Full API reference: **[docs/API.md](docs/API.md)**
 
