@@ -19,8 +19,6 @@ A **Jetpack Compose** library for **glassmorphism** UI — translucent surfaces,
   </video>
 </p>
 
-Maintained by **[Saad Khan](https://github.com/saadkhalidkhan)** · [Portfolio](https://github.com/saadkhalidkhan/Saad-Portfolio) · [Medium](https://medium.com/@saadkhan0799)
-
 ---
 
 ## Features
