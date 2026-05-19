@@ -15,9 +15,7 @@ A **Jetpack Compose** library for **glassmorphism** UI — translucent surfaces,
 [**Report a bug**](https://github.com/saadkhalidkhan/ComposeGlassKitTheme/issues) · [**Contributing**](CONTRIBUTING.md) · [**Security**](SECURITY.md)
 
 <p align="center">
-  <video src="docs/media/glasskit.webm" width="720" autoplay loop muted playsinline>
-    <a href="docs/media/glasskit.webm">Watch demo video</a>
-  </video>
+  <img src="docs/media/glasskit.gif" width="480" alt="ComposeGlassKit demo — glass UI over photo backgrounds" />
 </p>
 
 ---
