@@ -3,6 +3,7 @@
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
 [![Kotlin](https://img.shields.io/badge/Kotlin-2.2.10-7F52FF?logo=kotlin&logoColor=white)](https://kotlinlang.org/)
 [![Android](https://img.shields.io/badge/Android-API%2026%2B-3DDC84?logo=android&logoColor=white)](https://developer.android.com/)
+[![Maven Central](https://img.shields.io/maven-central/v/io.github.saadkhalidkhan/compose-glasskit?label=Maven%20Central)](https://central.sonatype.com/artifact/io.github.saadkhalidkhan/compose-glasskit)
 [![JitPack](https://jitpack.io/v/saadkhalidkhan/ComposeGlassKitTheme.svg)](https://jitpack.io/#saadkhalidkhan/ComposeGlassKitTheme)
 [![minSdk](https://img.shields.io/badge/minSdk-26-lightgrey)](glasskit/build.gradle.kts)
 [![targetSdk](https://img.shields.io/badge/targetSdk-36-lightgrey)](sample/build.gradle.kts)
@@ -66,21 +67,38 @@ Sample app with different background presets and live glass controls:
 
 ## Installation
 
-### 1. Module dependency (monorepo / local)
+### 1. Maven Central (recommended)
+
+Published on [Maven Central](https://central.sonatype.com/artifact/io.github.saadkhalidkhan/compose-glasskit). `mavenCentral()` is enough — no extra repository.
+
+| | |
+|---|---|
+| **Group** | `io.github.saadkhalidkhan` |
+| **Artifact** | `compose-glasskit` |
+| **Version** | `1.0.0` (`VERSION_NAME` in `gradle.properties`) |
 
 ```kotlin
 // settings.gradle.kts
-include(":glasskit")
-
-// your-app/build.gradle.kts
-dependencies {
-    implementation(project(":glasskit"))
+dependencyResolutionManagement {
+    repositories {
+        google()
+        mavenCentral()
+    }
 }
 ```
 
-### 2. JitPack (GitHub release)
+```kotlin
+// app/build.gradle.kts
+dependencies {
+    implementation("io.github.saadkhalidkhan:compose-glasskit:1.0.0")
+}
+```
 
-JitPack uses your **GitHub repo** for coordinates (`com.github.saadkhalidkhan`), not the library Maven group (`com.saadkhan`). That is expected.
+Check [Maven Central](https://central.sonatype.com/artifact/io.github.saadkhalidkhan/compose-glasskit) or [search.maven.org](https://search.maven.org/search?q=g:io.github.saadkhalidkhan%20AND%20a:compose-glasskit) for newer versions.
+
+### 2. JitPack (alternative)
+
+JitPack uses **GitHub** coordinates (`com.github.saadkhalidkhan`), not the Maven Central group (`io.github.saadkhalidkhan`).
 
 1. Tag a release on GitHub (e.g. `v1.0.0`).
 2. Build it on [JitPack](https://jitpack.io/#saadkhalidkhan/ComposeGlassKitTheme).
@@ -106,19 +124,17 @@ dependencies {
 
 If resolution fails, try `…:glasskit:v1.0.0` or copy the Gradle line from the [JitPack build page](https://jitpack.io/#saadkhalidkhan/ComposeGlassKitTheme) for your tag.
 
-### 3. Maven coordinates (Maven Central / local)
-
-| | |
-|---|---|
-| **Group** | `com.saadkhan` |
-| **Artifact** | `compose-glasskit` |
-| **Version** | `1.0.0` (`LIBRARY_VERSION` in `gradle.properties`) |
+### 3. Module dependency (monorepo / local)
 
 ```kotlin
-implementation("com.saadkhan:compose-glasskit:1.0.0")
-```
+// settings.gradle.kts
+include(":glasskit")
 
-Use this form after publishing to Maven Central or `publishToMavenLocal`. For day-one distribution, JitPack (above) is usually enough.
+// your-app/build.gradle.kts
+dependencies {
+    implementation(project(":glasskit"))
+}
+```
 
 ## Quick start
 
@@ -208,13 +224,17 @@ Run **ComposeGlassKit Sample** (`:sample`) to tweak blur and opacity over Unspla
 
 ## Publishing
 
-Local Maven:
+For maintainers. Copy `local.properties.example` to `local.properties` and set Maven Central token + GPG signing keys (see [Vanniktech plugin docs](https://vanniktech.github.io/gradle-maven-publish-plugin/central/)).
 
 ```bash
-./gradlew :glasskit:publishReleasePublicationToMavenLocal
+# Install to local ~/.m2
+./gradlew :glasskit:publishToMavenLocal
+
+# Upload to Maven Central (then publish the deployment on central.sonatype.com)
+./gradlew :glasskit:publishToMavenCentral
 ```
 
-GitHub release (tags `v*` trigger [release workflow](.github/workflows/release.yml) and attach APK/AAR artifacts). CI runs on every push via [Android CI](.github/workflows/android-ci.yml).
+GitHub release tags (`v*`) trigger the [release workflow](.github/workflows/release.yml) (APK/AAR artifacts). CI runs on every push via [Android CI](.github/workflows/android-ci.yml).
 
 ## Documentation
 

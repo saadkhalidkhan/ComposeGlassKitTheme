@@ -1,8 +1,32 @@
 # Usage examples
 
-Package: `com.saadkhan.composeglasskit`
+Kotlin package: `com.saadkhan.composeglasskit`  
+Maven coordinates: `io.github.saadkhalidkhan:compose-glasskit`
 
 ## Setup
+
+### Maven Central
+
+```kotlin
+// settings.gradle.kts — ensure mavenCentral() is listed
+dependencyResolutionManagement {
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+```
+
+```kotlin
+// your-module/build.gradle.kts
+dependencies {
+    implementation("io.github.saadkhalidkhan:compose-glasskit:1.0.0")
+}
+```
+
+See [README — Installation](../README.md#1-maven-central-recommended) for JitPack and other options.
+
+### Local module (monorepo)
 
 ```kotlin
 // settings.gradle.kts

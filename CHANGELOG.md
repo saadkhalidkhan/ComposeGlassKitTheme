@@ -18,5 +18,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Unit tests for `GlassConfig` defaults
 - GitHub Actions CI and release workflows
 - Apache 2.0 license
+- Maven Central release [`io.github.saadkhalidkhan:compose-glasskit:1.0.0`](https://central.sonatype.com/artifact/io.github.saadkhalidkhan/compose-glasskit)
 
 [1.0.0]: https://github.com/saadkhalidkhan/ComposeGlassKitTheme/releases/tag/v1.0.0
