@@ -1,0 +1,27 @@
+# REQUIRED: copy this file to "local.properties" in the project root and replace placeholders.
+#   copy local.properties.example local.properties
+# Android Studio may already create local.properties with sdk.dir — keep that line and add the keys below.
+# local.properties is gitignored — never commit real secrets.
+#
+# Publish keys: gradlew loads them via ORG_GRADLE_PROJECT_* (see gradle/load-publish-env.bat).
+# They are also synced to %USERPROFILE%\.gradle\gradle.properties for Android Studio / later runs.
+#
+# Alternative: put the same keys in %USERPROFILE%\.gradle\gradle.properties (no copy needed).
+
+# --- Maven Central Portal (https://central.sonatype.com/usertoken) ---
+# Username = first line from "Generate User Token"
+# Password = second line (long string). NOT your normal login password.
+mavenCentralUsername=YOUR_TOKEN_USERNAME
+mavenCentralPassword=YOUR_TOKEN_PASSWORD
+
+# --- GPG signing ---
+# keyId = last 8 hex chars of your key (from: gpg --list-secret-keys --keyid-format LONG)
+signing.keyId=204CA977
+
+# password = the passphrase YOU TYPED when gpg asked during "gpg --full-generate-key"
+# (the secret sentence you chose to protect the private key — not GitHub, not Central token)
+signing.password=YOUR_GPG_PASSPHRASE
+
+# With useGpgCmd() in glasskit/build.gradle.kts you usually do NOT need secretKeyRingFile.
+# If signing fails, uncomment and fix the path after: dir %APPDATA%\gnupg
+# signing.secretKeyRingFile=C:/Users/YourName/AppData/Roaming/gnupg/pubring.kbx

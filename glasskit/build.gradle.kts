@@ -1,7 +1,8 @@
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.compose)
-    `maven-publish`
+    alias(libs.plugins.maven.publish)
+    signing
 }
 
 android {
@@ -36,12 +37,6 @@ android {
     buildFeatures {
         compose = true
     }
-
-    publishing {
-        singleVariant("release") {
-            withSourcesJar()
-        }
-    }
 }
 
 dependencies {
@@ -57,15 +52,12 @@ dependencies {
     testImplementation(libs.junit)
 }
 
-afterEvaluate {
-    publishing {
-        publications {
-            create<MavenPublication>("release") {
-                from(components["release"])
-                groupId = project.findProperty("LIBRARY_GROUP") as String
-                artifactId = project.findProperty("LIBRARY_ARTIFACT_ID") as String
-                version = project.findProperty("LIBRARY_VERSION") as String
-            }
-        }
-    }
+signing {
+    // Requires gpg on PATH (gradlew prepends Gpg4win; add to system PATH for Android Studio).
+    useGpgCmd()
+}
+
+mavenPublishing {
+    publishToMavenCentral()
+    signAllPublications()
 }

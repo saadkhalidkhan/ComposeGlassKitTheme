@@ -201,6 +201,11 @@ if "$cygwin" || "$msys" ; then
 fi
 
 
+# Maven Central publish secrets (local.properties -> ORG_GRADLE_PROJECT_*)
+# shellcheck disable=SC1091
+. "$APP_HOME/gradle/load-publish-env.sh"
+load_publish_env "$APP_HOME/local.properties"
+
 # Add default JVM options here. You can also use JAVA_OPTS and GRADLE_OPTS to pass JVM options to this script.
 DEFAULT_JVM_OPTS='"-Xmx64m" "-Xms64m"'
 
