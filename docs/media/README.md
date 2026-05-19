@@ -16,13 +16,15 @@
 
 ### Regenerate `glasskit.gif` from `glasskit.webm`
 
-Requires [FFmpeg](https://ffmpeg.org/). Example (480px wide, 12 fps, palette-optimized):
+Requires [FFmpeg](https://ffmpeg.org/). Example (~875 KB: 320px wide, 10 fps, 128-color palette):
 
 ```bash
 ffmpeg -y -i docs/media/glasskit.webm \
-  -vf "fps=12,scale=480:-1:flags=lanczos,split[s0][s1];[s0]palettegen=stats_mode=diff:max_colors=256[p];[s1][p]paletteuse=dither=bayer:bayer_scale=3" \
+  -vf "fps=10,scale=320:-1:flags=lanczos,split[s0][s1];[s0]palettegen=stats_mode=diff:max_colors=128[p];[s1][p]paletteuse=dither=bayer:bayer_scale=5" \
   -loop 0 docs/media/glasskit.gif
 ```
+
+For an even smaller file (~400 KB), use `fps=8`, `scale=280:-1`, and `max_colors=96`.
 
 ## Optional
 
