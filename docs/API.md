@@ -25,6 +25,34 @@ Provides `GlassConfig` to descendants. Read current values with `GlassTheme.conf
 
 Required: `shape`. Optional overrides for blur, colors, alpha, and border width. Unspecified numeric values inherit from `GlassTheme`.
 
+### `Modifier.animatedGlassEffect(...)`
+
+Same parameters as `glassEffect` plus `animationSpec` (default `tween(600ms)`). Animates blur, alpha, and border from zero to target on first composition — the glass "forms" into view.
+
+### `Modifier.glassShimmer(...)`
+
+| Parameter | Default | Description |
+|-----------|---------|-------------|
+| `color` | `White @ 0.15f` | Shimmer highlight color |
+| `durationMillis` | `2000` | Full sweep cycle duration |
+| `shimmerWidth` | `0.4f` | Band width as fraction of composable width |
+| `angle` | `20f` | Diagonal angle in degrees |
+
+Draws an infinite diagonal light-streak overlay. Apply after `glassEffect` or `animatedGlassEffect`.
+
+### `Modifier.glassBorderGlow(...)`
+
+| Parameter | Default | Description |
+|-----------|---------|-------------|
+| `shape` | (required) | Must match the glass surface shape |
+| `borderColor` | theme default | Base gradient color |
+| `borderWidth` | theme default | Stroke width |
+| `minAlpha` | `0.1f` | Minimum pulse opacity |
+| `maxAlpha` | `0.5f` | Maximum pulse opacity |
+| `durationMillis` | `2000` | Full pulse cycle (min → max → min) |
+
+Adds a breathing border glow that oscillates independently of the glass fill.
+
 ## Components
 
 All components accept the same glass parameters as `glassEffect` unless noted.
@@ -35,7 +63,7 @@ All components accept the same glass parameters as `glassEffect` unless noted.
 
 ### `GlassButton`
 
-`onClick`, `enabled`, `shape` (default `CircleShape`), `contentPadding`, `content` row scope.
+`onClick`, `enabled`, `shape` (default `CircleShape`), `contentPadding`, `pressScale` (default `0.96f`), `pressAlpha` (default `0.85f`), `content` row scope. Includes animated scale and alpha feedback on press.
 
 ### `GlassNavBar`
 
