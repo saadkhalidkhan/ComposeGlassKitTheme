@@ -67,6 +67,9 @@ import com.saadkhan.composeglasskit.components.GlassButton
 import com.saadkhan.composeglasskit.components.GlassCard
 import com.saadkhan.composeglasskit.components.GlassDialog
 import com.saadkhan.composeglasskit.components.GlassNavBar
+import com.saadkhan.composeglasskit.modifiers.animatedGlassEffect
+import com.saadkhan.composeglasskit.modifiers.glassBorderGlow
+import com.saadkhan.composeglasskit.modifiers.glassShimmer
 import com.saadkhan.composeglasskit.sample.ui.theme.ComposeGlassKitTheme
 import com.saadkhan.composeglasskit.theme.GlassConfig
 import com.saadkhan.composeglasskit.theme.GlassTheme
@@ -107,7 +110,6 @@ fun SampleAppContent() {
     )
 
     Box(modifier = Modifier.fillMaxSize()) {
-        // Background Image
         AsyncImage(
             model = backgroundImages[selectedImageIndex],
             contentDescription = null,
@@ -115,7 +117,6 @@ fun SampleAppContent() {
             contentScale = ContentScale.Crop
         )
 
-        // Overlay scrim to ensure text readability on light images
         Box(
             modifier = Modifier
                 .fillMaxSize()
@@ -128,7 +129,7 @@ fun SampleAppContent() {
                 bottomBar = {
                     GlassNavBar(
                         modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp),
-                        shape = RoundedCornerShape(24.dp) // Floating nav bar look
+                        shape = RoundedCornerShape(24.dp)
                     ) {
                         NavigationBarItem(
                             selected = selectedTab == 0,
@@ -146,8 +147,8 @@ fun SampleAppContent() {
                         NavigationBarItem(
                             selected = selectedTab == 1,
                             onClick = { selectedTab = 1 },
-                            icon = { Icon(Icons.Rounded.Dashboard, contentDescription = "Components") },
-                            label = { Text("Showcase") },
+                            icon = { Icon(Icons.Rounded.AutoAwesome, contentDescription = "Animations") },
+                            label = { Text("Animate") },
                             colors = NavigationBarItemDefaults.colors(
                                 selectedIconColor = MaterialTheme.colorScheme.primary,
                                 unselectedIconColor = Color.White.copy(alpha = 0.7f),
@@ -172,187 +173,45 @@ fun SampleAppContent() {
                     }
                 }
             ) { paddingValues ->
-                Column(
-                    modifier = Modifier
-                        .fillMaxSize()
-                        .padding(paddingValues)
-                        .verticalScroll(rememberScrollState())
-                        .padding(20.dp),
-                    verticalArrangement = Arrangement.spacedBy(20.dp)
-                ) {
-                    // Title with Gradient
-                    Text(
-                        text = "ComposeGlassKit",
-                        style = MaterialTheme.typography.displayMedium.copy(
-                            fontWeight = FontWeight.Black,
-                            letterSpacing = (-1.5).sp,
-                            brush = Brush.linearGradient(
-                                colors = listOf(Color.White, Color.White.copy(alpha = 0.6f))
-                            )
-                        ),
-                        modifier = Modifier.padding(top = 16.dp)
+                when (selectedTab) {
+                    0 -> HomeContent(
+                        blurRadius = blurRadius,
+                        onBlurRadiusChange = { blurRadius = it },
+                        containerAlpha = containerAlpha,
+                        onContainerAlphaChange = { containerAlpha = it },
+                        borderAlpha = borderAlpha,
+                        onBorderAlphaChange = { borderAlpha = it },
+                        selectedImageIndex = selectedImageIndex,
+                        onImageSelected = { selectedImageIndex = it },
+                        onShowDialog = { showDialog = true },
+                        modifier = Modifier
+                            .fillMaxSize()
+                            .padding(paddingValues)
+                            .verticalScroll(rememberScrollState())
+                            .padding(20.dp)
                     )
-
-                    Text(
-                        "Beautiful, performant glassmorphism for Jetpack Compose.",
-                        style = MaterialTheme.typography.bodyLarge,
-                        color = Color.White.copy(alpha = 0.8f)
+                    1 -> AnimationsShowcase(
+                        modifier = Modifier
+                            .fillMaxSize()
+                            .padding(paddingValues)
+                            .verticalScroll(rememberScrollState())
+                            .padding(20.dp)
                     )
-
-                    // Real-time Configuration Card
-                    GlassCard(
-                        modifier = Modifier.fillMaxWidth(),
-                        containerAlpha = 0.15f,
-                        borderAlpha = 0.4f
-                    ) {
-                        Column(modifier = Modifier.padding(24.dp)) {
-                            Row(verticalAlignment = Alignment.CenterVertically) {
-                                Icon(Icons.Rounded.Tune, null, tint = Color.White)
-                                Spacer(Modifier.width(12.dp))
-                                Text(
-                                    "Visual Editor",
-                                    style = MaterialTheme.typography.titleLarge,
-                                    color = Color.White,
-                                    fontWeight = FontWeight.Bold
-                                )
-                            }
-                            Spacer(Modifier.height(20.dp))
-                            
-                            ConfigSlider(
-                                label = "Blur Intensity: ${blurRadius.toInt()}dp",
-                                value = blurRadius,
-                                onValueChange = { blurRadius = it },
-                                valueRange = 0f..40f
-                            )
-                            
-                            ConfigSlider(
-                                label = "Glass Opacity: ${"%.2f".format(containerAlpha)}",
-                                value = containerAlpha,
-                                onValueChange = { containerAlpha = it },
-                                valueRange = 0.05f..0.6f
-                            )
-                            
-                            ConfigSlider(
-                                label = "Edge Highlight: ${"%.2f".format(borderAlpha)}",
-                                value = borderAlpha,
-                                onValueChange = { borderAlpha = it },
-                                valueRange = 0f..0.8f
-                            )
-                        }
-                    }
-
-                    // Background Gallery with horizontal scroll
-                    Text(
-                        "Scenery Presets", 
-                        color = Color.White, 
-                        style = MaterialTheme.typography.titleMedium,
-                        fontWeight = FontWeight.SemiBold
+                    2 -> ConfigContent(
+                        blurRadius = blurRadius,
+                        onBlurRadiusChange = { blurRadius = it },
+                        containerAlpha = containerAlpha,
+                        onContainerAlphaChange = { containerAlpha = it },
+                        borderAlpha = borderAlpha,
+                        onBorderAlphaChange = { borderAlpha = it },
+                        selectedImageIndex = selectedImageIndex,
+                        onImageSelected = { selectedImageIndex = it },
+                        modifier = Modifier
+                            .fillMaxSize()
+                            .padding(paddingValues)
+                            .verticalScroll(rememberScrollState())
+                            .padding(20.dp)
                     )
-                    Row(
-                        modifier = Modifier.fillMaxWidth(),
-                        horizontalArrangement = Arrangement.spacedBy(12.dp)
-                    ) {
-                        backgroundImages.forEachIndexed { index, url ->
-                            Card(
-                                onClick = { selectedImageIndex = index },
-                                modifier = Modifier
-                                    .height(100.dp)
-                                    .weight(1f),
-                                shape = RoundedCornerShape(16.dp),
-                                border = if (selectedImageIndex == index) BorderStroke(3.dp, MaterialTheme.colorScheme.primary) else null,
-                                elevation = CardDefaults.cardElevation(defaultElevation = 8.dp)
-                            ) {
-                                AsyncImage(
-                                    model = url,
-                                    contentDescription = null,
-                                    contentScale = ContentScale.Crop,
-                                    modifier = Modifier.fillMaxSize()
-                                )
-                            }
-                        }
-                    }
-
-                    // Components Showcase
-                    Text(
-                        "Component Library", 
-                        color = Color.White, 
-                        style = MaterialTheme.typography.titleMedium,
-                        fontWeight = FontWeight.SemiBold
-                    )
-                    
-                    GlassCard(
-                        modifier = Modifier.fillMaxWidth(),
-                        shape = RoundedCornerShape(24.dp)
-                    ) {
-                        Row(
-                            modifier = Modifier.padding(20.dp),
-                            verticalAlignment = Alignment.CenterVertically
-                        ) {
-                            Box(
-                                modifier = Modifier
-                                    .size(56.dp)
-                                    .background(MaterialTheme.colorScheme.primary.copy(alpha = 0.2f), CircleShape),
-                                contentAlignment = Alignment.Center
-                            ) {
-                                Icon(Icons.Rounded.Layers, null, tint = Color.White)
-                            }
-                            Spacer(Modifier.width(16.dp))
-                            Column {
-                                Text("Dynamic Layering", style = MaterialTheme.typography.titleSmall, color = Color.White)
-                                Text("Backdrop blur updates in real-time.", style = MaterialTheme.typography.bodySmall, color = Color.White.copy(alpha = 0.7f))
-                            }
-                        }
-                    }
-
-                    Row(horizontalArrangement = Arrangement.spacedBy(16.dp)) {
-                        GlassButton(
-                            onClick = { showDialog = true },
-                            modifier = Modifier.weight(1f),
-                            shape = RoundedCornerShape(16.dp)
-                        ) {
-                            Icon(Icons.Rounded.Launch, contentDescription = null, modifier = Modifier.size(18.dp))
-                            Spacer(Modifier.width(8.dp))
-                            Text("Open Modal")
-                        }
-
-                        GlassButton(
-                            onClick = { },
-                            modifier = Modifier.weight(1f),
-                            containerColor = MaterialTheme.colorScheme.tertiary,
-                            containerAlpha = 0.3f,
-                            shape = RoundedCornerShape(16.dp)
-                        ) {
-                            Icon(Icons.Rounded.Favorite, contentDescription = null, modifier = Modifier.size(18.dp))
-                            Spacer(Modifier.width(8.dp))
-                            Text("Save UI")
-                        }
-                    }
-
-                    // Action Icons Row
-                    GlassCard(
-                        modifier = Modifier.fillMaxWidth(),
-                        shape = CircleShape,
-                        containerAlpha = 0.1f
-                    ) {
-                        Row(
-                            modifier = Modifier.fillMaxWidth().padding(8.dp),
-                            horizontalArrangement = Arrangement.SpaceEvenly,
-                            verticalAlignment = Alignment.CenterVertically
-                        ) {
-                            listOf(Icons.Rounded.Share, Icons.Rounded.Download, Icons.Rounded.Edit, Icons.Rounded.MoreHoriz).forEach { icon ->
-                                IconButton(
-                                    onClick = { },
-                                    modifier = Modifier
-                                        .size(48.dp)
-                                        .background(Color.White.copy(alpha = 0.05f), CircleShape)
-                                ) {
-                                    Icon(icon, null, tint = Color.White, modifier = Modifier.size(20.dp))
-                                }
-                            }
-                        }
-                    }
-                    
-                    Spacer(Modifier.height(60.dp))
                 }
             }
 
@@ -407,6 +266,499 @@ fun SampleAppContent() {
                 }
             }
         }
+    }
+}
+
+@Composable
+private fun HomeContent(
+    blurRadius: Float,
+    onBlurRadiusChange: (Float) -> Unit,
+    containerAlpha: Float,
+    onContainerAlphaChange: (Float) -> Unit,
+    borderAlpha: Float,
+    onBorderAlphaChange: (Float) -> Unit,
+    selectedImageIndex: Int,
+    onImageSelected: (Int) -> Unit,
+    onShowDialog: () -> Unit,
+    modifier: Modifier = Modifier,
+) {
+    Column(
+        modifier = modifier,
+        verticalArrangement = Arrangement.spacedBy(20.dp)
+    ) {
+        Text(
+            text = "ComposeGlassKit",
+            style = MaterialTheme.typography.displayMedium.copy(
+                fontWeight = FontWeight.Black,
+                letterSpacing = (-1.5).sp,
+                brush = Brush.linearGradient(
+                    colors = listOf(Color.White, Color.White.copy(alpha = 0.6f))
+                )
+            ),
+            modifier = Modifier.padding(top = 16.dp)
+        )
+
+        Text(
+            "Beautiful, performant glassmorphism for Jetpack Compose.",
+            style = MaterialTheme.typography.bodyLarge,
+            color = Color.White.copy(alpha = 0.8f)
+        )
+
+        GlassCard(
+            modifier = Modifier.fillMaxWidth(),
+            containerAlpha = 0.15f,
+            borderAlpha = 0.4f
+        ) {
+            Column(modifier = Modifier.padding(24.dp)) {
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    Icon(Icons.Rounded.Tune, null, tint = Color.White)
+                    Spacer(Modifier.width(12.dp))
+                    Text(
+                        "Visual Editor",
+                        style = MaterialTheme.typography.titleLarge,
+                        color = Color.White,
+                        fontWeight = FontWeight.Bold
+                    )
+                }
+                Spacer(Modifier.height(20.dp))
+
+                ConfigSlider(
+                    label = "Blur Intensity: ${blurRadius.toInt()}dp",
+                    value = blurRadius,
+                    onValueChange = onBlurRadiusChange,
+                    valueRange = 0f..40f
+                )
+
+                ConfigSlider(
+                    label = "Glass Opacity: ${"%.2f".format(containerAlpha)}",
+                    value = containerAlpha,
+                    onValueChange = onContainerAlphaChange,
+                    valueRange = 0.05f..0.6f
+                )
+
+                ConfigSlider(
+                    label = "Edge Highlight: ${"%.2f".format(borderAlpha)}",
+                    value = borderAlpha,
+                    onValueChange = onBorderAlphaChange,
+                    valueRange = 0f..0.8f
+                )
+            }
+        }
+
+        Text(
+            "Component Library",
+            color = Color.White,
+            style = MaterialTheme.typography.titleMedium,
+            fontWeight = FontWeight.SemiBold
+        )
+
+        GlassCard(
+            modifier = Modifier.fillMaxWidth(),
+            shape = RoundedCornerShape(24.dp)
+        ) {
+            Row(
+                modifier = Modifier.padding(20.dp),
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Box(
+                    modifier = Modifier
+                        .size(56.dp)
+                        .background(MaterialTheme.colorScheme.primary.copy(alpha = 0.2f), CircleShape),
+                    contentAlignment = Alignment.Center
+                ) {
+                    Icon(Icons.Rounded.Layers, null, tint = Color.White)
+                }
+                Spacer(Modifier.width(16.dp))
+                Column {
+                    Text("Dynamic Layering", style = MaterialTheme.typography.titleSmall, color = Color.White)
+                    Text("Backdrop blur updates in real-time.", style = MaterialTheme.typography.bodySmall, color = Color.White.copy(alpha = 0.7f))
+                }
+            }
+        }
+
+        Row(horizontalArrangement = Arrangement.spacedBy(16.dp)) {
+            GlassButton(
+                onClick = onShowDialog,
+                modifier = Modifier.weight(1f),
+                shape = RoundedCornerShape(16.dp)
+            ) {
+                Icon(Icons.Rounded.Launch, contentDescription = null, modifier = Modifier.size(18.dp))
+                Spacer(Modifier.width(8.dp))
+                Text("Open Modal")
+            }
+
+            GlassButton(
+                onClick = { },
+                modifier = Modifier.weight(1f),
+                containerColor = MaterialTheme.colorScheme.tertiary,
+                containerAlpha = 0.3f,
+                shape = RoundedCornerShape(16.dp)
+            ) {
+                Icon(Icons.Rounded.Favorite, contentDescription = null, modifier = Modifier.size(18.dp))
+                Spacer(Modifier.width(8.dp))
+                Text("Save UI")
+            }
+        }
+
+        GlassCard(
+            modifier = Modifier.fillMaxWidth(),
+            shape = CircleShape,
+            containerAlpha = 0.1f
+        ) {
+            Row(
+                modifier = Modifier.fillMaxWidth().padding(8.dp),
+                horizontalArrangement = Arrangement.SpaceEvenly,
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                listOf(Icons.Rounded.Share, Icons.Rounded.Download, Icons.Rounded.Edit, Icons.Rounded.MoreHoriz).forEach { icon ->
+                    IconButton(
+                        onClick = { },
+                        modifier = Modifier
+                            .size(48.dp)
+                            .background(Color.White.copy(alpha = 0.05f), CircleShape)
+                    ) {
+                        Icon(icon, null, tint = Color.White, modifier = Modifier.size(20.dp))
+                    }
+                }
+            }
+        }
+
+        Spacer(Modifier.height(60.dp))
+    }
+}
+
+@Composable
+private fun AnimationsShowcase(modifier: Modifier = Modifier) {
+    Column(
+        modifier = modifier,
+        verticalArrangement = Arrangement.spacedBy(24.dp)
+    ) {
+        Text(
+            text = "Animations",
+            style = MaterialTheme.typography.displaySmall.copy(
+                fontWeight = FontWeight.Black,
+                brush = Brush.linearGradient(
+                    colors = listOf(Color.White, Color.White.copy(alpha = 0.6f))
+                )
+            ),
+            modifier = Modifier.padding(top = 16.dp)
+        )
+
+        Text(
+            "New in v1.1.0 — animated glass modifiers that bring motion to your glass surfaces.",
+            style = MaterialTheme.typography.bodyLarge,
+            color = Color.White.copy(alpha = 0.8f)
+        )
+
+        // Animated Glass Entrance
+        Text(
+            "Animated Entrance",
+            color = Color.White,
+            style = MaterialTheme.typography.titleMedium,
+            fontWeight = FontWeight.SemiBold
+        )
+
+        Box(
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(120.dp)
+                .animatedGlassEffect(shape = RoundedCornerShape(24.dp))
+                .padding(24.dp),
+            contentAlignment = Alignment.CenterStart
+        ) {
+            Column {
+                Text(
+                    "animatedGlassEffect",
+                    style = MaterialTheme.typography.titleSmall,
+                    color = Color.White,
+                    fontWeight = FontWeight.Bold
+                )
+                Text(
+                    "Glass forms with animated blur, alpha, and border transition.",
+                    style = MaterialTheme.typography.bodySmall,
+                    color = Color.White.copy(alpha = 0.7f)
+                )
+            }
+        }
+
+        // Shimmer Effect
+        Text(
+            "Shimmer Highlight",
+            color = Color.White,
+            style = MaterialTheme.typography.titleMedium,
+            fontWeight = FontWeight.SemiBold
+        )
+
+        GlassCard(
+            modifier = Modifier
+                .fillMaxWidth()
+                .glassShimmer(),
+            shape = RoundedCornerShape(24.dp)
+        ) {
+            Row(
+                modifier = Modifier.padding(24.dp),
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Box(
+                    modifier = Modifier
+                        .size(48.dp)
+                        .background(Color.White.copy(alpha = 0.1f), CircleShape),
+                    contentAlignment = Alignment.Center
+                ) {
+                    Icon(Icons.Rounded.AutoAwesome, null, tint = Color.White)
+                }
+                Spacer(Modifier.width(16.dp))
+                Column {
+                    Text(
+                        "glassShimmer()",
+                        style = MaterialTheme.typography.titleSmall,
+                        color = Color.White,
+                        fontWeight = FontWeight.Bold
+                    )
+                    Text(
+                        "A diagonal light streak sweeps across the surface.",
+                        style = MaterialTheme.typography.bodySmall,
+                        color = Color.White.copy(alpha = 0.7f)
+                    )
+                }
+            }
+        }
+
+        // Border Glow Pulse
+        Text(
+            "Border Glow Pulse",
+            color = Color.White,
+            style = MaterialTheme.typography.titleMedium,
+            fontWeight = FontWeight.SemiBold
+        )
+
+        val glowShape = RoundedCornerShape(24.dp)
+        GlassCard(
+            modifier = Modifier
+                .fillMaxWidth()
+                .glassBorderGlow(
+                    shape = glowShape,
+                    minAlpha = 0.1f,
+                    maxAlpha = 0.6f,
+                    durationMillis = 2500
+                ),
+            shape = glowShape,
+            borderAlpha = 0f
+        ) {
+            Row(
+                modifier = Modifier.padding(24.dp),
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Box(
+                    modifier = Modifier
+                        .size(48.dp)
+                        .background(Color.Cyan.copy(alpha = 0.15f), CircleShape),
+                    contentAlignment = Alignment.Center
+                ) {
+                    Icon(Icons.Rounded.Layers, null, tint = Color.Cyan)
+                }
+                Spacer(Modifier.width(16.dp))
+                Column {
+                    Text(
+                        "glassBorderGlow()",
+                        style = MaterialTheme.typography.titleSmall,
+                        color = Color.White,
+                        fontWeight = FontWeight.Bold
+                    )
+                    Text(
+                        "Border opacity pulses for an ambient breathing glow.",
+                        style = MaterialTheme.typography.bodySmall,
+                        color = Color.White.copy(alpha = 0.7f)
+                    )
+                }
+            }
+        }
+
+        // Button Press Animation
+        Text(
+            "Button Press Feedback",
+            color = Color.White,
+            style = MaterialTheme.typography.titleMedium,
+            fontWeight = FontWeight.SemiBold
+        )
+
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.spacedBy(16.dp)
+        ) {
+            GlassButton(
+                onClick = { },
+                modifier = Modifier.weight(1f),
+                shape = RoundedCornerShape(16.dp)
+            ) {
+                Text("Press Me")
+            }
+
+            GlassButton(
+                onClick = { },
+                modifier = Modifier.weight(1f),
+                shape = RoundedCornerShape(16.dp),
+                containerColor = Color.Cyan,
+                containerAlpha = 0.2f,
+                pressScale = 0.92f
+            ) {
+                Text("Deep Press")
+            }
+        }
+
+        Text(
+            "GlassButton now scales and fades on press. Configurable via pressScale and pressAlpha.",
+            style = MaterialTheme.typography.bodySmall,
+            color = Color.White.copy(alpha = 0.6f)
+        )
+
+        // Combined effects demo
+        Text(
+            "Combined Effects",
+            color = Color.White,
+            style = MaterialTheme.typography.titleMedium,
+            fontWeight = FontWeight.SemiBold
+        )
+
+        val combinedShape = RoundedCornerShape(24.dp)
+        Box(
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(140.dp)
+                .animatedGlassEffect(shape = combinedShape)
+                .glassBorderGlow(
+                    shape = combinedShape,
+                    borderColor = Color.Cyan,
+                    minAlpha = 0.05f,
+                    maxAlpha = 0.4f
+                )
+                .glassShimmer(
+                    color = Color.White.copy(alpha = 0.08f),
+                    durationMillis = 3000
+                )
+                .padding(24.dp),
+            contentAlignment = Alignment.Center
+        ) {
+            Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                Text(
+                    "All Three Combined",
+                    style = MaterialTheme.typography.titleMedium,
+                    color = Color.White,
+                    fontWeight = FontWeight.Bold
+                )
+                Spacer(Modifier.height(4.dp))
+                Text(
+                    "Entrance + Shimmer + Border Glow",
+                    style = MaterialTheme.typography.bodySmall,
+                    color = Color.White.copy(alpha = 0.7f)
+                )
+            }
+        }
+
+        Spacer(Modifier.height(60.dp))
+    }
+}
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+private fun ConfigContent(
+    blurRadius: Float,
+    onBlurRadiusChange: (Float) -> Unit,
+    containerAlpha: Float,
+    onContainerAlphaChange: (Float) -> Unit,
+    borderAlpha: Float,
+    onBorderAlphaChange: (Float) -> Unit,
+    selectedImageIndex: Int,
+    onImageSelected: (Int) -> Unit,
+    modifier: Modifier = Modifier,
+) {
+    Column(
+        modifier = modifier,
+        verticalArrangement = Arrangement.spacedBy(20.dp)
+    ) {
+        Text(
+            text = "Configuration",
+            style = MaterialTheme.typography.displaySmall.copy(
+                fontWeight = FontWeight.Black,
+                brush = Brush.linearGradient(
+                    colors = listOf(Color.White, Color.White.copy(alpha = 0.6f))
+                )
+            ),
+            modifier = Modifier.padding(top = 16.dp)
+        )
+
+        GlassCard(
+            modifier = Modifier.fillMaxWidth(),
+            containerAlpha = 0.15f,
+            borderAlpha = 0.4f
+        ) {
+            Column(modifier = Modifier.padding(24.dp)) {
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    Icon(Icons.Rounded.Tune, null, tint = Color.White)
+                    Spacer(Modifier.width(12.dp))
+                    Text(
+                        "Glass Parameters",
+                        style = MaterialTheme.typography.titleLarge,
+                        color = Color.White,
+                        fontWeight = FontWeight.Bold
+                    )
+                }
+                Spacer(Modifier.height(20.dp))
+
+                ConfigSlider(
+                    label = "Blur Intensity: ${blurRadius.toInt()}dp",
+                    value = blurRadius,
+                    onValueChange = onBlurRadiusChange,
+                    valueRange = 0f..40f
+                )
+
+                ConfigSlider(
+                    label = "Glass Opacity: ${"%.2f".format(containerAlpha)}",
+                    value = containerAlpha,
+                    onValueChange = onContainerAlphaChange,
+                    valueRange = 0.05f..0.6f
+                )
+
+                ConfigSlider(
+                    label = "Edge Highlight: ${"%.2f".format(borderAlpha)}",
+                    value = borderAlpha,
+                    onValueChange = onBorderAlphaChange,
+                    valueRange = 0f..0.8f
+                )
+            }
+        }
+
+        Text(
+            "Scenery Presets",
+            color = Color.White,
+            style = MaterialTheme.typography.titleMedium,
+            fontWeight = FontWeight.SemiBold
+        )
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.spacedBy(12.dp)
+        ) {
+            backgroundImages.forEachIndexed { index, url ->
+                Card(
+                    onClick = { onImageSelected(index) },
+                    modifier = Modifier
+                        .height(100.dp)
+                        .weight(1f),
+                    shape = RoundedCornerShape(16.dp),
+                    border = if (selectedImageIndex == index) BorderStroke(3.dp, MaterialTheme.colorScheme.primary) else null,
+                    elevation = CardDefaults.cardElevation(defaultElevation = 8.dp)
+                ) {
+                    AsyncImage(
+                        model = url,
+                        contentDescription = null,
+                        contentScale = ContentScale.Crop,
+                        modifier = Modifier.fillMaxSize()
+                    )
+                }
+            }
+        }
+
+        Spacer(Modifier.height(60.dp))
     }
 }
 
