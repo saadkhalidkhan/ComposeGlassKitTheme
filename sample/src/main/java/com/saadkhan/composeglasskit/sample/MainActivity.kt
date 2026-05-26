@@ -135,39 +135,39 @@ fun SampleAppContent() {
                             selected = selectedTab == 0,
                             onClick = { selectedTab = 0 },
                             icon = { Icon(Icons.Rounded.Home, contentDescription = "Home") },
-                            label = { Text("Home") },
+                            label = { Text("Home", color = if (selectedTab == 0) Color.White else Color.White.copy(alpha = 0.9f)) },
                             colors = NavigationBarItemDefaults.colors(
-                                selectedIconColor = MaterialTheme.colorScheme.primary,
-                                unselectedIconColor = Color.White.copy(alpha = 0.7f),
-                                selectedTextColor = MaterialTheme.colorScheme.primary,
-                                unselectedTextColor = Color.White.copy(alpha = 0.7f),
-                                indicatorColor = Color.White.copy(alpha = 0.1f)
+                                selectedIconColor = Color.White,
+                                unselectedIconColor = Color.White.copy(alpha = 0.9f),
+                                selectedTextColor = Color.White,
+                                unselectedTextColor = Color.White.copy(alpha = 0.9f),
+                                indicatorColor = MaterialTheme.colorScheme.primary.copy(alpha = 0.3f)
                             )
                         )
                         NavigationBarItem(
                             selected = selectedTab == 1,
                             onClick = { selectedTab = 1 },
                             icon = { Icon(Icons.Rounded.AutoAwesome, contentDescription = "Animations") },
-                            label = { Text("Animate") },
+                            label = { Text("Animate", color = if (selectedTab == 1) Color.White else Color.White.copy(alpha = 0.9f)) },
                             colors = NavigationBarItemDefaults.colors(
-                                selectedIconColor = MaterialTheme.colorScheme.primary,
-                                unselectedIconColor = Color.White.copy(alpha = 0.7f),
-                                selectedTextColor = MaterialTheme.colorScheme.primary,
-                                unselectedTextColor = Color.White.copy(alpha = 0.7f),
-                                indicatorColor = Color.White.copy(alpha = 0.1f)
+                                selectedIconColor = Color.White,
+                                unselectedIconColor = Color.White.copy(alpha = 0.9f),
+                                selectedTextColor = Color.White,
+                                unselectedTextColor = Color.White.copy(alpha = 0.9f),
+                                indicatorColor = MaterialTheme.colorScheme.primary.copy(alpha = 0.3f)
                             )
                         )
                         NavigationBarItem(
                             selected = selectedTab == 2,
                             onClick = { selectedTab = 2 },
                             icon = { Icon(Icons.Rounded.Settings, contentDescription = "Settings") },
-                            label = { Text("Config") },
+                            label = { Text("Config", color = if (selectedTab == 2) Color.White else Color.White.copy(alpha = 0.9f)) },
                             colors = NavigationBarItemDefaults.colors(
-                                selectedIconColor = MaterialTheme.colorScheme.primary,
-                                unselectedIconColor = Color.White.copy(alpha = 0.7f),
-                                selectedTextColor = MaterialTheme.colorScheme.primary,
-                                unselectedTextColor = Color.White.copy(alpha = 0.7f),
-                                indicatorColor = Color.White.copy(alpha = 0.1f)
+                                selectedIconColor = Color.White,
+                                unselectedIconColor = Color.White.copy(alpha = 0.9f),
+                                selectedTextColor = Color.White,
+                                unselectedTextColor = Color.White.copy(alpha = 0.9f),
+                                indicatorColor = MaterialTheme.colorScheme.primary.copy(alpha = 0.3f)
                             )
                         )
                     }
